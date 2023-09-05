@@ -1,0 +1,103 @@
+<?php
+class Ipclock extends CI_Controller
+{
+
+	function __construct()
+	{
+		parent::__construct();
+		if ($this->session->userdata('logged') != TRUE) {
+			$url = base_url('administrator');
+			redirect($url);
+		};
+		$this->load->model('backend/Jenis_model', 'jenis_model');
+		$this->load->model('backend/Ipclock_Model', 'ipclock_model');
+		$this->load->helper('text');
+	}
+
+	function index()
+	{
+		$x['jenis'] = $this->jenis_model->get_all_jenis();
+		$x['data'] = $this->ipclock_model->get_ipclock();
+
+		$this->load->view('backend/v_ipclock', $x);
+		$this->load->helper('text');
+	}
+
+	function insert()
+	{
+		$assnumb = htmlspecialchars($this->input->post('assnumb', TRUE), ENT_QUOTES);
+		$assnam = htmlspecialchars($this->input->post('assnam', TRUE), ENT_QUOTES);
+		$md = htmlspecialchars($this->input->post('md', TRUE), ENT_QUOTES);
+		$brn = htmlspecialchars($this->input->post('brn', TRUE), ENT_QUOTES);
+		$po = htmlspecialchars($this->input->post('po', TRUE), ENT_QUOTES);
+		$ma = htmlspecialchars($this->input->post('ma', TRUE), ENT_QUOTES);
+		$ip = htmlspecialchars($this->input->post('ip', TRUE), ENT_QUOTES);
+		$lc = htmlspecialchars($this->input->post('lc', TRUE), ENT_QUOTES);
+		$jenis = $this->input->post('jenis', TRUE);
+
+		$x['jenis'] = $this->jenis_model->get_all_jenis();
+
+		$this->ipclock_model->insert_ipclock($assnumb, $assnam, $md, $brn, $po, $ma, $ip, $lc, $jenis);
+		echo $this->session->set_flashdata('msg', 'success');
+		redirect('backend/ipclock');
+	}
+
+	function get_update()
+	{
+		$idprd = $this->uri->segment(4);
+		$x['jenis'] = $this->jenis_model->get_all_jenis();
+		$x['data'] = $this->ipclock_model->get_ipclock_id($idprd);
+	}
+
+	function update()
+	{
+		$idprd = $this->input->post('idprd', TRUE);
+		$assnumb = htmlspecialchars($this->input->post('assnumb', TRUE), ENT_QUOTES);
+		$assnam = htmlspecialchars($this->input->post('assnam', TRUE), ENT_QUOTES);
+		$md = htmlspecialchars($this->input->post('md', TRUE), ENT_QUOTES);
+		$brn = htmlspecialchars($this->input->post('brn', TRUE), ENT_QUOTES);
+		$po = htmlspecialchars($this->input->post('po', TRUE), ENT_QUOTES);
+		$ma = htmlspecialchars($this->input->post('ma', TRUE), ENT_QUOTES);
+		$ip = htmlspecialchars($this->input->post('ip', TRUE), ENT_QUOTES);
+		$lc = htmlspecialchars($this->input->post('lc', TRUE), ENT_QUOTES);
+		$jenis = $this->input->post('jenis', TRUE);
+
+		$x['jenis'] = $this->jenis_model->get_all_jenis();
+
+		$this->ipclock_model->update_ipclock($idprd, $assnumb, $assnam, $md, $brn, $po, $ma, $ip, $lc, $jenis);
+		echo $this->session->set_flashdata('msg', 'succes');
+		redirect('backend/ipclock');
+	}
+
+	function delete()
+	{
+		$idprd = $this->input->post('kode', TRUE);
+		$this->ipclock_model->delete_ipclock($idprd);
+		echo $this->session->set_flashdata('msg', 'success-hapus');
+		redirect('backend/ipclock');
+	}
+
+	function pdf()
+	{
+
+		$this->load->library('dompdf_gen');
+		$x['ipclockpdf'] = $this->ipclock_model->get_ipclock('tbl_ipclock')->result();
+		$this->load->view('backend/ipclock_report_pdf', $x);
+
+		$paper_size = 'A4';
+		$orientation = 'landscape';
+		$html = $this->output->get_output();
+		$this->dompdf->set_paper($paper_size, $orientation);
+
+		$this->dompdf->load_html($html);
+		$this->dompdf->render();
+		$this->dompdf->stream("ipclock_report.pdf", array('Attachement' => 0));
+	}
+
+	function excel()
+	{
+
+		$x['ipclockexcel'] = $this->ipclock_model->get_ipclock('tbl_ipclock')->result();
+		$this->load->view('backend/ipclock_report_excel', $x);
+	}
+}
