@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Okt 2023 pada 13.50
+-- Waktu pembuatan: 14 Des 2023 pada 16.26
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 5.6.40
 
@@ -278,6 +278,13 @@ CREATE TABLE `tbl_laptop` (
   `jenis_aktivasi` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_laptop`
+--
+
+INSERT INTO `tbl_laptop` (`id_laptop`, `assets_number`, `assets_name`, `laptop_date`, `laptop_model`, `brand`, `user_di`, `serial_number`, `mac_address`, `hard_disk`, `processor`, `operating_system`, `room`, `jenis_aktivasi`) VALUES
+(1, 'SANLD001', 'IDUPC575', '2023-10-09', 'T440', 'Lenovo', 'fafa', 'PC032D0Q', 'dadw2', '119.12 GB', 'Intel(R) Core(TM) i5-4300U CPU @ 1.90GHz, 2501 MHz, 2 Core(s), 4 Logical Processor(s)', 'Windows 10', 'OFFICE', '6');
+
 -- --------------------------------------------------------
 
 --
@@ -426,7 +433,7 @@ CREATE TABLE `tbl_post` (
 --
 
 INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_description`, `post_contents`, `post_image`, `post_date`, `post_last_update`, `post_category_id`, `post_tags`, `post_slug`, `post_status`, `post_views`, `post_user_id`) VALUES
-(10, 'Internship Student', '', '<p style=\"text-align: center; \"><img src=\"http://localhost/sandvikasset/assets/images/d6e9b4ed3d9dc8abc33b8ce8c2fef0431.jpg\" class=\"img-thumbnail\" style=\"width: 100%;\"><br></p><p style=\"text-align: center; \"><br></p><p><span style=\"color: rgb(66, 66, 66);\">Hi! my name is ahmad ruslandia, i am a one-month summer intern at sandvik in Light Insdustrial park.</span></p><p><span style=\"color: rgb(66, 66, 66);\"><br></span></p><p><span style=\"color: rgb(66, 66, 66);\">I was 21 years old and staying in Timika for the job summer, i will then be going to studies in Makassar where iam currently studying computer science at Universitas Muslim Indonesia.</span></p><p><span style=\"color: rgb(66, 66, 66);\"> What iam enjoys about working in Sandvik (IT Support) is the enthusiasm of the team being eager to help interns to learn new things.</span></p><p><span style=\"color: rgb(0, 0, 0);\"><br></span></p><p><span style=\"color: rgb(0, 0, 0);\"><br></span></p><p><br></p>', 'd6e9b4ed3d9dc8abc33b8ce8c2fef043.jpg', '2023-07-28 15:19:23', '2023-10-02 00:32:11', 4, '', 'internship-student', 1, 23, 3);
+(10, 'Internship Student', '', '<p style=\"text-align: center; \"><img src=\"http://localhost/sandvikasset/assets/images/d6e9b4ed3d9dc8abc33b8ce8c2fef0431.jpg\" class=\"img-thumbnail\" style=\"width: 100%;\"><br></p><p style=\"text-align: center; \"><br></p><p><span style=\"color: rgb(66, 66, 66);\">Hi! my name is ahmad ruslandia, i am a one-month summer intern at sandvik in Light Insdustrial park.</span></p><p><span style=\"color: rgb(66, 66, 66);\"><br></span></p><p><span style=\"color: rgb(66, 66, 66);\">I was 21 years old and staying in Timika for the job summer, i will then be going to studies in Makassar where iam currently studying computer science at Universitas Muslim Indonesia.</span></p><p><span style=\"color: rgb(66, 66, 66);\"> What iam enjoys about working in Sandvik (IT Support) is the enthusiasm of the team being eager to help interns to learn new things.</span></p><p><span style=\"color: rgb(0, 0, 0);\"><br></span></p><p><span style=\"color: rgb(0, 0, 0);\"><br></span></p><p><br></p>', 'd6e9b4ed3d9dc8abc33b8ce8c2fef043.jpg', '2023-07-28 15:19:23', '2023-10-02 00:32:11', 4, '', 'internship-student', 1, 26, 3);
 
 -- --------------------------------------------------------
 
@@ -549,7 +556,10 @@ INSERT INTO `tbl_post_views` (`view_id`, `view_date`, `view_ip`, `view_post_id`)
 (101, '2023-08-23 10:16:30', '::1', 10),
 (102, '2023-10-01 16:05:14', '::1', 10),
 (103, '2023-10-04 13:40:35', '::1', 10),
-(104, '2023-10-06 11:17:40', '::1', 10);
+(104, '2023-10-06 11:17:40', '::1', 10),
+(105, '2023-10-09 11:43:55', '::1', 10),
+(106, '2023-11-10 06:46:11', '::1', 10),
+(107, '2023-12-14 15:13:38', '::1', 10);
 
 -- --------------------------------------------------------
 
@@ -709,7 +719,7 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`user_id`, `user_di`, `user_name`, `user_number`, `user_email`, `user_password`, `user_area`, `user_division`, `user_room`, `user_level`, `user_status`, `user_photo`) VALUES
-(3, '13020200002', 'Ahmad Ruslandia Papua', '+6281240713388', 'rusland@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Highland', 'IT', 'Office', '1', '1', '68131940d12491591327a0b75a8a0c43.jpg');
+(3, '13020200002', 'Ahmad Ruslandia Papua', '+6281200003388', 'rusland@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'Highland', 'IT', 'Office', '1', '1', '68131940d12491591327a0b75a8a0c43.jpg');
 
 -- --------------------------------------------------------
 
@@ -730,103 +740,7 @@ CREATE TABLE `tbl_visitors` (
 
 INSERT INTO `tbl_visitors` (`visit_id`, `visit_date`, `visit_ip`, `visit_platform`) VALUES
 (541327, '2019-03-18 14:07:36', '::1', 'Firefox'),
-(541328, '2019-03-19 03:33:51', '::1', 'Chrome'),
-(541329, '2019-03-20 01:00:19', '::1', 'Chrome'),
-(541330, '2019-04-05 01:53:28', '::1', 'Firefox'),
-(541331, '2019-04-06 01:37:35', '::1', 'Chrome'),
-(541332, '2019-04-06 23:04:12', '::1', 'Chrome'),
-(541333, '2019-04-09 12:19:32', '::1', 'Chrome'),
-(541334, '2019-04-10 01:33:03', '::1', 'Chrome'),
-(541335, '2019-04-11 03:30:38', '::1', 'Chrome'),
-(541336, '2019-04-11 03:30:38', '::1', 'Chrome'),
-(541337, '2019-04-12 03:51:42', '::1', 'Chrome'),
-(541338, '2019-04-12 21:55:51', '::1', 'Chrome'),
-(541339, '2019-04-14 01:30:40', '::1', 'Chrome'),
-(541340, '2019-04-15 01:42:53', '::1', 'Chrome'),
-(541341, '2019-05-08 02:07:09', '::1', 'Chrome'),
-(541342, '2019-05-21 05:55:14', '::1', 'Firefox'),
-(541343, '2019-08-28 07:08:22', '::1', 'Firefox'),
-(541344, '2019-12-17 06:04:57', '::1', 'Firefox'),
-(541345, '2019-12-18 01:34:25', '::1', 'Firefox'),
-(541346, '2019-12-19 02:21:23', '::1', 'Firefox'),
-(541347, '2019-12-20 07:47:00', '::1', 'Firefox'),
-(541348, '2019-12-28 02:58:34', '::1', 'Firefox'),
-(541349, '2019-12-29 08:48:39', '::1', 'Firefox'),
-(541350, '2019-12-30 03:24:04', '::1', 'Firefox'),
-(541351, '2019-12-31 02:47:15', '::1', 'Firefox'),
-(541352, '2020-01-01 02:24:55', '::1', 'Firefox'),
-(541353, '2020-01-02 01:58:25', '::1', 'Firefox'),
-(541354, '2020-01-03 03:15:30', '::1', 'Firefox'),
-(541355, '2020-01-04 03:31:49', '::1', 'Firefox'),
-(541356, '2020-01-05 06:58:35', '127.0.0.1', 'Firefox'),
-(541357, '2020-01-06 06:03:25', '::1', 'Firefox'),
-(541358, '2020-01-07 00:57:59', '::1', 'Firefox'),
-(541359, '2020-01-08 05:53:44', '::1', 'Firefox'),
-(541360, '2020-01-12 04:18:15', '::1', 'Firefox'),
-(541361, '2021-07-17 05:50:59', '::1', 'Chrome'),
-(541362, '2021-07-18 04:11:28', '::1', 'Chrome'),
-(541363, '2021-07-24 12:52:48', '::1', 'Chrome'),
-(541364, '2022-08-02 08:29:19', '::1', 'Chrome'),
-(541365, '2022-08-02 16:17:01', '::1', 'Chrome'),
-(541366, '2022-08-06 13:44:03', '::1', 'Chrome'),
-(541367, '2022-08-06 16:43:52', '::1', 'Chrome'),
-(541368, '2022-08-08 03:31:11', '::1', 'Chrome'),
-(541369, '2022-08-10 01:48:25', '::1', 'Chrome'),
-(541370, '2022-08-13 03:15:53', '::1', 'Chrome'),
-(541371, '2022-08-30 12:32:37', '::1', 'Chrome'),
-(541372, '2022-09-02 14:53:02', '::1', 'Chrome'),
-(541373, '2022-09-10 16:14:14', '::1', 'Chrome'),
-(541374, '2022-12-07 07:08:34', '::1', 'Chrome'),
-(541375, '2022-12-07 16:00:09', '::1', 'Chrome'),
-(541376, '2022-12-08 16:19:36', '::1', 'Chrome'),
-(541377, '2022-12-10 07:06:23', '::1', 'Chrome'),
-(541378, '2022-12-12 10:58:07', '::1', 'Chrome'),
-(541379, '2023-01-24 09:49:20', '::1', 'Chrome'),
-(541380, '2023-01-24 16:10:17', '::1', 'Chrome'),
-(541381, '2023-01-26 06:19:21', '::1', 'Chrome'),
-(541382, '2023-01-26 21:06:17', '::1', 'Chrome'),
-(541383, '2023-01-27 13:50:26', '127.0.0.1', 'Chrome'),
-(541384, '2023-01-28 07:03:19', '::1', 'Chrome'),
-(541385, '2023-01-28 16:07:38', '::1', 'Chrome'),
-(541386, '2023-01-29 16:17:21', '::1', 'Chrome'),
-(541387, '2023-01-31 15:02:16', '::1', 'Chrome'),
-(541388, '2023-02-01 14:12:15', '::1', 'Chrome'),
-(541389, '2023-02-01 16:23:47', '::1', 'Chrome'),
-(541390, '2023-02-02 16:23:14', '::1', 'Chrome'),
-(541391, '2023-02-03 13:53:31', '127.0.0.1', 'Chrome'),
-(541392, '2023-02-04 07:56:56', '::1', 'Chrome'),
-(541393, '2023-02-04 16:10:08', '::1', 'Chrome'),
-(541394, '2023-02-06 13:11:39', '::1', 'Chrome'),
-(541395, '2023-07-26 10:25:26', '::1', 'Chrome'),
-(541396, '2023-07-26 22:57:09', '::1', 'Chrome'),
-(541397, '2023-07-27 22:15:19', '::1', 'Chrome'),
-(541398, '2023-07-29 02:51:33', '::1', 'Chrome'),
-(541399, '2023-07-30 01:45:53', '::1', 'Chrome'),
-(541400, '2023-07-30 12:59:54', '127.0.0.1', 'Chrome'),
-(541401, '2023-07-30 21:55:42', '::1', 'Chrome'),
-(541402, '2023-08-01 12:28:21', '::1', 'Chrome'),
-(541403, '2023-08-04 12:50:28', '::1', 'Chrome'),
-(541404, '2023-08-07 10:40:59', '::1', 'Chrome'),
-(541405, '2023-08-07 16:12:02', '::1', 'Chrome'),
-(541406, '2023-08-09 06:44:17', '::1', 'Chrome'),
-(541407, '2023-08-10 03:14:26', '::1', 'Chrome'),
-(541408, '2023-08-10 16:00:12', '::1', 'Chrome'),
-(541409, '2023-08-12 06:42:07', '::1', 'Chrome'),
-(541410, '2023-08-12 08:38:24', '127.0.0.1', 'Chrome'),
-(541411, '2023-08-12 16:22:56', '::1', 'Chrome'),
-(541412, '2023-08-14 02:29:12', '::1', 'Chrome'),
-(541413, '2023-08-15 05:46:23', '::1', 'Chrome'),
-(541414, '2023-08-16 01:53:55', '::1', 'Chrome'),
-(541415, '2023-08-17 13:53:19', '::1', 'Chrome'),
-(541416, '2023-08-18 08:45:44', '::1', 'Chrome'),
-(541417, '2023-08-19 08:04:42', '::1', 'Chrome'),
-(541418, '2023-08-20 11:16:17', '::1', 'Chrome'),
-(541419, '2023-08-21 07:16:24', '::1', 'Chrome'),
-(541420, '2023-08-22 13:31:26', '::1', 'Chrome'),
-(541421, '2023-08-23 02:37:06', '::1', 'Chrome'),
-(541422, '2023-10-01 16:05:03', '::1', 'Chrome'),
-(541423, '2023-10-04 13:40:18', '::1', 'Chrome'),
-(541424, '2023-10-06 11:09:39', '::1', 'Chrome');
+(541430, '2023-12-14 15:13:10', '::1', 'Chrome');
 
 -- --------------------------------------------------------
 
@@ -1099,7 +1013,7 @@ ALTER TABLE `tbl_keyboard`
 -- AUTO_INCREMENT untuk tabel `tbl_laptop`
 --
 ALTER TABLE `tbl_laptop`
-  MODIFY `id_laptop` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_laptop` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_lcdprojector`
@@ -1141,7 +1055,7 @@ ALTER TABLE `tbl_post`
 -- AUTO_INCREMENT untuk tabel `tbl_post_views`
 --
 ALTER TABLE `tbl_post_views`
-  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_printer`
@@ -1195,7 +1109,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT untuk tabel `tbl_visitors`
 --
 ALTER TABLE `tbl_visitors`
-  MODIFY `visit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=541425;
+  MODIFY `visit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=541431;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_wifi`

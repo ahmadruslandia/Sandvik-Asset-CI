@@ -91,8 +91,6 @@
 				</div>
 			</section>
 
-			</section>
-
 			<!-- SECTION BLOG
 				================================================== -->
 			<section id="thoughts" class="page-section small-section">

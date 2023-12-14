@@ -1,0 +1,7 @@
+.footer-polygon {
+	padding-top: 200px;
+    border: none;
+    background: url(polygon-footer.svg) center 100px no-repeat;
+	background-size:contain;
+	height:100%;
+}
